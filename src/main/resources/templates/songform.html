@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>song-form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="images/for-songform.css">
+    <!--    <link rel="stylesheet" href="purpose-test.css">-->
+</head>
+<body>
+<!--nav bar at the top-->
+<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top">
+    <!--    <div class="container nav-part">-->
+
+    <div href="#" class="logo here" style="color: white">HOME </div>
+
+</nav>
+
+
+<!--nav bar-->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container head-j">
+        <!--        <h1 class="display-4">Fluid jumbotron</h1>-->
+        <div href="#" class="navbar-brand" style="color: white"><h3>MUSIC</h3> </div>
+        <div class="col-lg-6"></div>
+        <div style="color: white"><h2>SONG</h2></div>
+        <!--        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
+    </div>
+</div>
+
+<div class="jumbotron col-md-6 justify-content-center offset-3">
+    <form action="#" th:action="@{/songform}" th:object="${song}" method="post">
+        <div class="div-bor">
+            <div id="name-col" class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="name-id">Song Name: </label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="name-id" th:field="*{name}" style="width: 100%"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!--////////////-->
+        <div class="div-bor">
+            <div id="artist-col" class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="artist-id">Artist: </label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="artist-id" th:field="*{artist}" style="width: 100%"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!--/////////-->
+        <div class="div-bor">
+            <div id="album-col" class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="album-id">Album: </label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="album-id" th:field="*{album}" style="width: 100%"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!--/////////-->
+        <div class="div-bor">
+            <div id="year-col" class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="year-id">Year: </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="year-id" th:field="*{year}" style="width: 100%"/>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2" style="float: right">In Stock</div>
+                    <div class="col-md-1" style="float: left">
+                        <input type="checkbox" id="stock-id" th:field="*{isStock}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!--        Rating-->
+                    <!--                        ///////////////////////-->
+        <div class="div-bor">
+            <div id="rate-col" class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Rating: </label>
+                    </div>
+                    <div class="col-md-5">
+                        <!--                        <input type="text" id="rate-id" th:field="*{rating}" style="width: 100%"/>-->
+                        <div class="rate">
+                            <input type="radio" th:field="*{rating}" id="star5" name="rate" value="5"/>
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio"  th:field="*{rating}" id="star4" name="rate" value="4"/>
+                            <label for="star4"  title="text">4 stars</label>
+                            <input type="radio"  th:field="*{rating}" id="star3" name="rate" value="3"/>
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio"  th:field="*{rating}" id="star2" name="rate" value="2"/>
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio"  th:field="*{rating}" id="star1" name="rate" value="1"/>
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+         <!--        ////////////////////////submit///////////////////////-->
+        <br/>
+        <div class="col-md-12 justify-content-center offset-4">
+            <input type="submit" value="Submit" style="width:30%"/>
+
+        </div>
+        <!--        Rating-->
+    </form>
+
+
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
